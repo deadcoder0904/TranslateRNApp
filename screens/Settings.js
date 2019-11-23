@@ -27,7 +27,6 @@ export const Settings = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
   language: {
     paddingTop: 10,
     textAlign: 'center',

@@ -28,7 +28,7 @@ export const Tile = ({fruit, addToTotal, removeFromTotal}) => {
       <Image
         resizeMode="contain"
         source={pic}
-        style={[styles.pic, {width, height: width * 0.8}]}
+        style={{width, height: width * 0.8}}
       />
       <View style={styles.flex}>
         <Icon name="pluscircleo" type="antdesign" onPress={addToCart} />
@@ -43,7 +43,6 @@ export const Tile = ({fruit, addToTotal, removeFromTotal}) => {
 };
 
 const styles = StyleSheet.create({
-  pic: {},
   flex: {
     display: 'flex',
     flexDirection: 'row',
