@@ -1,0 +1,18 @@
+{
+  "shop.title": "Продуктовый магазин",
+  "date.title": "Сегодняшняя дата",
+  "date.format": "21.11.19",
+  "app.currency": "₽",
+  "fruit.apple": "яблоко",
+  "fruit.apple.price.value": 10,
+  "fruit.banana": "Банан",
+  "fruit.banana.price.value": 7,
+  "fruit.watermelon": "Арбуз",
+  "fruit.watermelon.price.value": 25,
+  "cart.total": "Итого",
+  "added.item": "добавлено {no} пунктов",
+  "added.items": "добавлено {no} предметов",
+  "cart.total.title": "Итого",
+  "cart.total.value.currencyStart": "{currencyStart}{value}",
+  "cart.total.value.currencyEnd": "{value}{currencyEnd}"
+}

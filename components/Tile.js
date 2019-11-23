@@ -1,10 +1,13 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Dimensions, StyleSheet, View} from 'react-native';
 import {Icon, Image, Text} from 'react-native-elements';
+import {LocalizationContext} from './Translations';
 
 const {width} = Dimensions.get('window');
 
 export const Tile = ({fruit, addToTotal, removeFromTotal}) => {
+  const {translations} = useContext(LocalizationContext);
+
   const [cart, changeCart] = useState(0);
   const {name, pic, price} = fruit;
   const fruitPrice = +fruit.price.substring(1);
@@ -28,7 +31,7 @@ export const Tile = ({fruit, addToTotal, removeFromTotal}) => {
       <Image
         resizeMode="contain"
         source={pic}
-        style={[styles.pic, {width, height: width * 0.8}]}
+        style={{width, height: width * 0.8}}
       />
       <View style={styles.flex}>
         <Icon name="pluscircleo" type="antdesign" onPress={addToCart} />
@@ -37,13 +40,20 @@ export const Tile = ({fruit, addToTotal, removeFromTotal}) => {
         </Text>
         <Icon name="minuscircleo" type="antdesign" onPress={removeFromCart} />
       </View>
-      <Text style={styles.cart}>Added {cart} items</Text>
+      <Text style={styles.cart}>
+        {cart === 1
+          ? translations.formatString(translations['added.item'], {
+              no: cart,
+            })
+          : translations.formatString(translations['added.items'], {
+              no: cart,
+            })}
+      </Text>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  pic: {},
   flex: {
     display: 'flex',
     flexDirection: 'row',

@@ -1,30 +1,37 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-elements';
 import {useSafeArea} from 'react-native-safe-area-context';
 import {Tile} from '../components/Tile';
-
-const fruits = [
-  {
-    name: 'Apple',
-    price: '$3',
-    pic: require('../assets/apple.png'),
-  },
-  {
-    name: 'Banana',
-    price: '$2',
-    pic: require('../assets/banana.png'),
-  },
-  {
-    name: 'Watermelon',
-    price: '$5',
-    pic: require('../assets/watermelon.png'),
-  },
-];
+import {LocalizationContext} from '../components/Translations';
 
 export const Home = () => {
+  const {translations, initializeAppLanguage} = useContext(LocalizationContext);
   const [total, changeTotal] = useState(0);
   const insets = useSafeArea();
+  initializeAppLanguage();
+
+  const fruits = [
+    {
+      name: translations['fruit.apple'],
+      price:
+        translations['app.currency'] + translations['fruit.apple.price.value'],
+      pic: require('../assets/apple.png'),
+    },
+    {
+      name: 'Banana',
+      price:
+        translations['app.currency'] + translations['fruit.banana.price.value'],
+      pic: require('../assets/banana.png'),
+    },
+    {
+      name: 'Watermelon',
+      price:
+        translations['app.currency'] +
+        translations['fruit.watermelon.price.value'],
+      pic: require('../assets/watermelon.png'),
+    },
+  ];
 
   const addToTotal = price => {
     changeTotal(total + price);
@@ -42,9 +49,11 @@ export const Home = () => {
           {paddingTop: insets.top, paddingBottom: insets.bottom},
         ]}>
         <Text h1 h1Style={styles.grocery}>
-          Grocery Shop
+          {translations['shop.title']}
         </Text>
-        <Text style={styles.date}>Today's date: 21/11/2019</Text>
+        <Text style={styles.date}>
+          {translations['date.title']}: {translations['date.format']}
+        </Text>
         {fruits.map(fruit => {
           return (
             <React.Fragment key={fruit.name}>
@@ -57,7 +66,14 @@ export const Home = () => {
           );
         })}
         <Text h3 h3Style={styles.total}>
-          Total Sum: ${total}
+          {translations['cart.total.title']}:
+          {translations.formatString(
+            translations['cart.total.value.currencyStart'],
+            {
+              currencyStart: translations['app.currency'],
+              value: total,
+            },
+          )}
         </Text>
       </View>
     </ScrollView>

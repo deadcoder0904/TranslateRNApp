@@ -42,6 +42,7 @@ target 'TranslateRNApp' do
 
 
 
+
   target 'TranslateRNAppTests' do
     inherit! :search_paths
     # Pods for testing

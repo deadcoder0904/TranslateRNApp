@@ -1,0 +1,17 @@
+{
+  "shop.title": "Grocery Shop",
+  "date.title": "Today's Date",
+  "date.format": "21/11/2019",
+  "app.currency": "$",
+  "fruit.apple": "Apple",
+  "fruit.apple.price.value": 3,
+  "fruit.banana": "Banana",
+  "fruit.banana.price.value": 2,
+  "fruit.watermelon": "Watermelon",
+  "fruit.watermelon.price.value": 5,
+  "added.item": "Added {no} item",
+  "added.items": "Added {no} items",
+  "cart.total.title": "Total Sum",
+  "cart.total.value.currencyStart": "{currencyStart}{value}",
+  "cart.total.value.currencyEnd": "{value}{currencyEnd}"
+}
