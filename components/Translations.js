@@ -31,7 +31,9 @@ export const LocalizationProvider = ({children}) => {
   const initializeAppLanguage = async () => {
     const currentLanguage = await AsyncStorage.getItem(APP_LANGUAGE);
 
-    if (!currentLanguage) {
+    if (currentLanguage) {
+      setLanguage(currentLanguage);
+    } else {
       let localeCode = DEFAULT_LANGUAGE;
       const supportedLocaleCodes = translations.getAvailableLanguages();
       const phoneLocaleCodes = RNLocalize.getLocales().map(
@@ -44,8 +46,6 @@ export const LocalizationProvider = ({children}) => {
         }
       });
       setLanguage(localeCode);
-    } else {
-      setLanguage(currentLanguage);
     }
   };
 
