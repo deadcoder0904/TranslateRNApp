@@ -19,13 +19,13 @@ export const Home = () => {
       pic: require('../assets/apple.png'),
     },
     {
-      name: 'Banana',
+      name: translations['fruit.banana'],
       price:
         translations['app.currency'] + translations['fruit.banana.price.value'],
       pic: require('../assets/banana.png'),
     },
     {
-      name: 'Watermelon',
+      name: translations['fruit.watermelon'],
       price:
         translations['app.currency'] +
         translations['fruit.watermelon.price.value'],
