@@ -10,7 +10,7 @@ const APP_LANGUAGE = 'appLanguage';
 
 const languages = {en, ru};
 
-export const translations = new LocalizedStrings(languages);
+const translations = new LocalizedStrings(languages);
 
 export const LocalizationContext = createContext({
   translations,
