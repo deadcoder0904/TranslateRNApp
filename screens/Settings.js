@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import {ListItem, Text} from 'react-native-elements';
 import {useSafeArea} from 'react-native-safe-area-context';
 
-const langs = ['en', 'fr'];
+const langs = ['en', 'ru'];
 
 export const Settings = () => {
   const [lang, changeLang] = useState('en');
