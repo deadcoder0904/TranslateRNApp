@@ -17,7 +17,7 @@ export const Settings = () => {
   return (
     <View style={[styles.container, {paddingTop: insets.top}]}>
       <Text h4 h4Style={styles.language}>
-        Change Language
+        {translations['settings.change_language']}
       </Text>
       {translations.getAvailableLanguages().map((currentLang, i) => (
         <ListItem

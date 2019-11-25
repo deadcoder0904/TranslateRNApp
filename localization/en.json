@@ -13,5 +13,6 @@
   "added.items": "Added {no} items",
   "cart.total.title": "Total Sum",
   "cart.total.value.currencyStart": "{currencyStart}{value}",
-  "cart.total.value.currencyEnd": "{value}{currencyEnd}"
+  "cart.total.value.currencyEnd": "{value}{currencyEnd}",
+  "settings.change_language": "Change Language"
 }

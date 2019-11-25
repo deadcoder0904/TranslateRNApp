@@ -14,5 +14,6 @@
   "added.items": "добавлено {no} предметов",
   "cart.total.title": "Итого",
   "cart.total.value.currencyStart": "{currencyStart}{value}",
-  "cart.total.value.currencyEnd": "{value}{currencyEnd}"
+  "cart.total.value.currencyEnd": "{value}{currencyEnd}",
+  "settings.change_language": "Изменить язык"
 }
