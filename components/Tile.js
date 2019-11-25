@@ -13,15 +13,13 @@ export const Tile = ({fruit, addToTotal, removeFromTotal}) => {
   const fruitPrice = +fruit.price.substring(1);
 
   const addToCart = () => {
-    const noOfItems = cart + 1;
-    changeCart(noOfItems);
+    changeCart(cart + 1);
     addToTotal(fruitPrice);
   };
 
   const removeFromCart = () => {
     if (cart > 0) {
-      const noOfItems = cart - 1;
-      changeCart(noOfItems);
+      changeCart(cart - 1);
       removeFromTotal(fruitPrice);
     }
   };
