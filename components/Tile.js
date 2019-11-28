@@ -5,6 +5,54 @@ import {LocalizationContext} from './Translations';
 
 const {width} = Dimensions.get('window');
 
+const translateNumber = (translations, cart) => {
+  const key = 'added.items.';
+  if (cart === 1) {
+    return translations.formatString(translations[key + 'one'], {
+      no: cart,
+    });
+  }
+
+  if (
+    (cart % 10 === 0 ||
+      cart % 10 === 5 ||
+      cart % 10 === 6 ||
+      cart % 10 === 7 ||
+      cart % 10 === 8 ||
+      cart % 10 === 9) &&
+    (cart % 100 === 11 ||
+      cart % 100 === 12 ||
+      cart % 100 === 13 ||
+      cart % 100 === 14)
+  ) {
+    return translations.formatString(translations[key + 'endingWithZero'], {
+      no: cart,
+    });
+  }
+
+  if (cart % 10 === 1 && cart % 100 !== 11) {
+    return translations.formatString(translations[key + 'endingWithOne'], {
+      no: cart,
+    });
+  }
+
+  if (
+    (cart % 10 === 2 || cart % 10 === 3 || cart % 10 === 4) &&
+    (cart % 100 !== 12 || cart % 100 !== 13 || cart % 100 !== 14)
+  ) {
+    return translations.formatString(
+      translations[key + 'endingWithTwoToFour'],
+      {
+        no: cart,
+      },
+    );
+  }
+
+  return translations.formatString(translations[key + 'endingWithOther'], {
+    no: cart,
+  });
+};
+
 export const Tile = ({fruit, addToTotal, removeFromTotal}) => {
   const {translations} = useContext(LocalizationContext);
 
@@ -38,15 +86,7 @@ export const Tile = ({fruit, addToTotal, removeFromTotal}) => {
         </Text>
         <Icon name="minuscircleo" type="antdesign" onPress={removeFromCart} />
       </View>
-      <Text style={styles.cart}>
-        {cart === 1
-          ? translations.formatString(translations['added.item'], {
-              no: cart,
-            })
-          : translations.formatString(translations['added.items'], {
-              no: cart,
-            })}
-      </Text>
+      <Text style={styles.cart}>{translateNumber(translations, cart)}</Text>
     </>
   );
 };
